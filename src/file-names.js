@@ -16,23 +16,29 @@ const { NotImplementedError } = require('../extensions/index.js');
  *
  */
 function renameFiles(names) {
-  // let container = {};
-  // let result =
+  let container = {};
+  let result = [];
 
-  // let retult = names.map((name) => {
-  //   if (!container[names[k]]) {
-  //     container[names[k]] = 0;
-  //     result.push(names[k]);
-  //     console.log(container[names[k]]);
-  //   } else {
-  //     container[names[k]] = container[names[k]] + 1;
-  //     result.push(`${names[k]}` + `(${container.names[k]})`);
-  //     // console.debug(container[names[k]]);
-  //   }
-  // }
+  for (let i = 0; i < names.length; i++) {
+    let name = names[i] + '';
+    // console.log(container);
+    if ((container[name] >= 0)) {
+      container[name] += 1;
+      container[`${name}` + `(${container[name]})`] = 0;
+      console.log(container);
+      result.push(`${name}` + `(${container[name]})`);
+      // container[name] = 0;
+      // result.push(name);
+      // console.log(container[name]);
+    } else {
+      container[name] = 0;
+      result.push(name);
+      // console.debug(container[names[k]]);
+    }
+  }
 
-  // return result;
-  throw new NotImplementedError('Not implemented');
+  return result;
+  // throw new NotImplementedError('Not implemented');
   // remove line with error and write your code here
 }
 
