@@ -16,9 +16,9 @@ function sortByHeight(arr) {
   arr.forEach(elem => {
     if (elem !== -1) sortArr.push(elem)
   })
-  sortArr.sort((a, b) => b - a);
+  sortArr.sort((a, b) => a - b);
   const result = [];
-  for (elem in arr) {
+  for (elem of arr) {
     result.push(elem === -1 ? -1 : sortArr.shift())
   }
   return result
