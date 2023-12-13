@@ -17,13 +17,21 @@ class DepthCalculator {
 
     let maxDepth = 0;
 
-    // if (! Array.isArray(arr)) {
-    //   return 0;
-    // }
+    if (! Array.isArray(arr)) {
+      return 0;
+    }
 
-    
-    throw new NotImplementedError('Not implemented');
-    // remove line with error and write your code here
+    for (let item of arr) {
+      if(Array.isArray(item)) {
+        const depth = this.calculateDepth(item)
+        if(depth > maxDepth) {
+          maxDepth = depth;
+        }
+      }
+    }
+
+    return 1 + maxDepth;
+
   }
 }
 
